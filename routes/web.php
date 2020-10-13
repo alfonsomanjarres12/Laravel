@@ -14,5 +14,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', array('nombre'=>'Efrain'));
+});
+
+Route::get('/login', function (){
+    return view('user.login');
+});
+
+
+Route::get('/register', function (){
+    return view('user.register');
+});
+
+
+Route::get('/profile', function (){
+    return view('user.profile');
+});
+
+Route::get('usuario/{nombre}/{edad}',function ($nombre, $edad) {
+    return "Mi nombre es: {$nombre} y mi edad es {$edad}";
+});
+
+Route::get('/cliente/datos', function (){
+    return 'Estos son los datos del cliente'.$_GET['id'];
 });
